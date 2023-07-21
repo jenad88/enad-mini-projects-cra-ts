@@ -1,17 +1,13 @@
 import React from 'react';
 import './App.css';
-import { PersonScore } from './chapt05/PersonScore';
-import { Alert } from './Alert';
+import { Outlet } from 'react-router-dom';
+import { Header } from './Header';
 
-function App() {
+export default function App() {
   return (
-    <div className="container">
-      <Alert heading="Success">Everything is really good!</Alert>
-      <div style={{ marginTop: '20px' }}>
-        <PersonScore />
-      </div>
-    </div>
+    <>
+      <Header />
+      <Outlet />
+    </>
   );
 }
-
-export default App;
