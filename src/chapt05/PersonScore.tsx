@@ -2,6 +2,19 @@ import { useEffect, useReducer, useRef, useMemo, useCallback } from 'react';
 import { getPerson } from './getPerson';
 import { Reset } from './Reset';
 
+export function CounterRef() {
+  const count = useRef(0);
+  return (
+    <button
+      onClick={() => {
+        count.current = count.current + 1;
+      }}
+    >
+      {count.current}
+    </button>
+  );
+}
+
 function sillyExpensiveFunction() {
   console.log('Executing silly function');
   let sum = 0;
@@ -82,6 +95,7 @@ export function PersonScore() {
       </button>
       <button onClick={() => dispatch({ type: 'decrement' })}>Subtract</button>
       <Reset onClick={handleReset} />
+      <CounterRef />
     </div>
   );
 }
