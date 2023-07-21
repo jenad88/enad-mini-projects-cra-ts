@@ -3,6 +3,7 @@ import { ProductsPage } from './pages/ProductsPage';
 import { ProductPage } from './pages/ProductPage';
 import PersonScorePage from './pages/PersonScorePage';
 import { ErrorPage } from './pages/ErrorPage';
+import { HomePage } from './pages/HomePage';
 import App from './App';
 
 const router = createBrowserRouter([
@@ -10,12 +11,11 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
-    children: [],
-  },
-  {
-    path: '/',
-    element: <App />,
     children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
       {
         path: 'products',
         element: <ProductsPage />,
