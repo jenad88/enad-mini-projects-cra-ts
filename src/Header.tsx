@@ -33,6 +33,15 @@ export function Header() {
           Products
         </NavLink>
         <NavLink
+          to="admin"
+          className={({ isActive }) =>
+            `text-white no-underline p-1 pb-0.5 border-solid border-b-2 
+            ${isActive ? 'border-white' : 'border-transparent'}`
+          }
+        >
+          Admin
+        </NavLink>
+        <NavLink
           to="personscore"
           className={({ isActive }) =>
             `text-white no-underline p-1 pb-0.5 border-solid        border-b-2 ${
