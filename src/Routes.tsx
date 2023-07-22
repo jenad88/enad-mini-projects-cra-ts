@@ -3,8 +3,11 @@ import { lazy, Suspense } from 'react';
 // import { ProductsPage } from './pages/ProductsPage';
 // import { ProductPage } from './pages/ProductPage';
 import PersonScorePage from './pages/PersonScorePage';
+import ContactPageUncontrolled from './pages/ContactPageUncontrolled';
 import { ErrorPage } from './pages/ErrorPage';
 import { HomePage } from './pages/HomePage';
+import { ThankYouPage } from './pages/ThankYouPage';
+import ContactPageReactRouter, { contactPageAction } from './pages/ContactPageReactRouter';
 import App from './App';
 
 const ProductsPage = lazy(() => import('./pages/ProductsPage'));
@@ -40,6 +43,19 @@ const router = createBrowserRouter([
             <ProductPage />
           </Suspense>
         ),
+      },
+      {
+        path: 'contact-us',
+        element: <ContactPageUncontrolled />,
+      },
+      {
+        path: '/contact-us2',
+        element: <ContactPageReactRouter />,
+        action: contactPageAction,
+      },
+      {
+        path: '/thank-you/:name',
+        element: <ThankYouPage />,
       },
       {
         path: 'personscore',
