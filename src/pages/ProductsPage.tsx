@@ -19,10 +19,7 @@ export function ProductsPage() {
       <ul className="list-none m-0 p-0">
         {getFilteredProducts().map((product) => (
           <li key={product.id} className="p-1 text-base text-slate-800">
-            <Link
-              to={`${product.id}`}
-              className="p-1 text-base text-slate-800           hover:underline"
-            >
+            <Link to={`${product.id}`} className="p-1 text-base text-slate-800 hover:underline">
               {product.name}
             </Link>
           </li>
