@@ -5,7 +5,7 @@ type Params = {
   id: string;
 };
 
-export function ProductPage() {
+export default function ProductPage() {
   const params = useParams<Params>();
   const id = params.id === undefined ? undefined : parseInt(params.id);
 

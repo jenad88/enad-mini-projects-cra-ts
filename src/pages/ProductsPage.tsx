@@ -1,7 +1,7 @@
 import { products } from '../data/products';
 import { Link, useSearchParams } from 'react-router-dom';
 
-export function ProductsPage() {
+export default function ProductsPage() {
   const [searchParams] = useSearchParams();
   function getFilteredProducts() {
     const search = searchParams.get('search');
