@@ -33,6 +33,26 @@ export function Header() {
           Products
         </NavLink>
         <NavLink
+          to="contact-us"
+          className={({ isActive }) =>
+            `text-white no-underline p-1 pb-0.5 border-solid        border-b-2 ${
+              isActive ? 'border-white' : 'border-transparent'
+            }`
+          }
+        >
+          Contact Us (Uncontrolled)
+        </NavLink>
+        <NavLink
+          to="contact-us2"
+          className={({ isActive }) =>
+            `text-white no-underline p-1 pb-0.5 border-solid        border-b-2 ${
+              isActive ? 'border-white' : 'border-transparent'
+            }`
+          }
+        >
+          Contact Us (React Router Form)
+        </NavLink>
+        <NavLink
           to="admin"
           className={({ isActive }) =>
             `text-white no-underline p-1 pb-0.5 border-solid border-b-2 
