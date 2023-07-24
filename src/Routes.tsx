@@ -10,6 +10,7 @@ import { ThankYouPage } from './pages/ThankYouPage';
 import ContactPageReactRouter, { contactPageAction } from './pages/ContactPageReactRouter';
 import ContactPageReactHookForm from './pages/ContactPageReactHookForm';
 import App from './App';
+import { PostsPage } from './posts/PostsPage';
 
 const ProductsPage = lazy(() => import('./pages/ProductsPage'));
 const ProductPage = lazy(() => import('./pages/ProductPage'));
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: 'contact-us3',
         element: <ContactPageReactHookForm />,
+      },
+      {
+        path: '/posts',
+        element: <PostsPage />,
       },
       {
         path: '/thank-you/:name',
