@@ -33,7 +33,7 @@ export default function ContactPageReactHookForm() {
 
   return (
     <div className="flex flex-col py-10 max-w-md mx-auto">
-      <h2 className="text-3xl font-bold underline mb-3">Contact Us (React Router Form)</h2>
+      <h2 className="text-3xl font-bold underline mb-3">Contact Us (React Hook Form)</h2>
       <p className="mb-3">If you enter your details we'll get back to you as soon as we can.</p>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
         <div className={fieldStyle}>
