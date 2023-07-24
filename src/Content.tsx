@@ -1,10 +1,8 @@
+import { useAppContext } from './AppContext';
 import { Outlet } from 'react-router-dom';
 
-type Props = {
-  permissions: undefined | string[];
-};
-
-export function Content({ permissions }: Props) {
+export function Content() {
+  const { permissions } = useAppContext();
   if (permissions === undefined) {
     return null;
   }
