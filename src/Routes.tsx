@@ -12,6 +12,7 @@ import ContactPageReactHookForm from './pages/ContactPageReactHookForm';
 import App from './App';
 import { PostsPage } from './posts/PostsPage';
 import { getPosts } from './posts/getPosts';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const ProductsPage = lazy(() => import('./pages/ProductsPage'));
 const ProductPage = lazy(() => import('./pages/ProductPage'));
@@ -87,6 +88,11 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
 export function Routes() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
