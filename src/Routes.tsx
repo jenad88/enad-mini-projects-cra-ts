@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, defer } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 // import { ProductsPage } from './pages/ProductsPage';
 // import { ProductPage } from './pages/ProductPage';
@@ -11,6 +11,7 @@ import ContactPageReactRouter, { contactPageAction } from './pages/ContactPageRe
 import ContactPageReactHookForm from './pages/ContactPageReactHookForm';
 import App from './App';
 import { PostsPage } from './posts/PostsPage';
+import { getPosts } from './posts/getPosts';
 
 const ProductsPage = lazy(() => import('./pages/ProductsPage'));
 const ProductPage = lazy(() => import('./pages/ProductPage'));
@@ -62,6 +63,7 @@ const router = createBrowserRouter([
       {
         path: '/posts',
         element: <PostsPage />,
+        loader: async () => defer({ posts: getPosts() }),
       },
       {
         path: '/thank-you/:name',
