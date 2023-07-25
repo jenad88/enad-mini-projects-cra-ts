@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react';
 // import { ProductPage } from './pages/ProductPage';
 import PersonScorePage from './pages/PersonScorePage';
 import ContactPageUncontrolled from './pages/ContactPageUncontrolled';
+import ChecklistPage from './pages/ChecklistPage';
 import { ErrorPage } from './pages/ErrorPage';
 import { HomePage } from './pages/HomePage';
 import { ThankYouPage } from './pages/ThankYouPage';
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: 'contact-us3',
         element: <ContactPageReactHookForm />,
+      },
+      {
+        path: 'checklist',
+        element: <ChecklistPage />,
       },
       {
         path: '/posts',
