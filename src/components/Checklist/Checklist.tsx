@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef, ReactNode, useState } from 'react';
-import { IdValue } from './types';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { useChecked } from './useChecked';
 
 type Props<Data> = {
   data: Data[];
@@ -17,16 +17,7 @@ export function Checklist<Data>({
   renderItem,
   ...ulProps
 }: Props<Data>) {
-  const [checkedIds, setCheckedIds] = useState<IdValue[]>([]);
-
-  const handleCheckChange = (checkedId: IdValue) => () => {
-    const isChecked = checkedIds.includes(checkedId);
-    let newCheckedIds = isChecked
-      ? checkedIds.filter((itemCheckedid) => itemCheckedid !== checkedId)
-      : checkedIds.concat(checkedId);
-    setCheckedIds(newCheckedIds);
-  };
-
+  const { checkedIds, handleCheckChange } = useChecked();
   return (
     <ul className="bg-gray-300 rounded p-10" {...ulProps}>
       {data.map((item) => {
