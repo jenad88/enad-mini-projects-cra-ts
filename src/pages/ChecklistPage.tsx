@@ -1,6 +1,18 @@
-import { Checklist } from '../components/Checklist';
+import { useState } from 'react';
+import { Checklist, IdValue } from '../components/Checklist';
 
 function ChecklistPage() {
+  const [checkedId, setCheckedId] = useState<IdValue | null>(null);
+
+  function handleCheckedIdsChange(newCheckedIds: IdValue[]) {
+    const newCheckedIdArr = newCheckedIds.filter((id) => id !== checkedId);
+    if (newCheckedIdArr.length === 1) {
+      setCheckedId(newCheckedIdArr[0]);
+    } else {
+      setCheckedId(null);
+    }
+  }
+
   return (
     <div className="p-10">
       <Checklist
@@ -20,6 +32,9 @@ function ChecklistPage() {
           maxHeight: '380px',
           overflowY: 'auto',
         }}
+        checkedIds={checkedId === null ? [] : [checkedId]}
+        onCheckedIdsChange={handleCheckedIdsChange}
+
         // renderItem={(item) => (
         //   <li key={item.id} className="bg-white p-4 border-b-2">
         //     <div className="text-xl text-slate-800 pb-1">{item.name}</div>
